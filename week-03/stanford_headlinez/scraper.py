@@ -40,17 +40,15 @@ def parse_headline_tags(txt):
             '<h3><a href='https://news.stanford.edu/2018/01/1/bye-stanford>Bye Stanford</a></h3>'
           ]
     """
-    aList = txt
-    lines = aList.splitlines()
+    lines = txt.splitlines()
     myList = []
 
     for line in lines:
-        if '<h3>' in line:
+        if '<h3><a' in line:
             myList.append(line)
     
     return myList
             
-    
 
 import requests
 
