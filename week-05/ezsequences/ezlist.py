@@ -3,10 +3,10 @@
 #
 # This skeleton script contains a series of functions that
 #  return
+import dateutil.parser
+from dateutil.relativedelta import relativedelta
 
 ez_list = [0, 1, 2, 3, 4, ['a', 'b', 'c'], 5, ['apples', 'oranges'], 42]
-
-
 
 def foo_hello():
     """
@@ -18,8 +18,6 @@ def foo_hello():
     """
     return type(ez_list)
 
-
-
 ##################
 # Exercises foo_a through foo_e cover basic list access
 ##################
@@ -28,6 +26,7 @@ def foo_a():
     """
     Return the very first member of `ez_list`
     """
+    return ez_list[0]
 
 
 def foo_b():
@@ -35,6 +34,11 @@ def foo_b():
     Return the sum of the 2nd and 4th members of
       `ezlist`
     """
+
+    a = ez_list[1]
+    b = ez_list[3]
+    return a+b
+
 
 
 
@@ -44,13 +48,14 @@ def foo_c():
 
     Use a negative index to specify this member
     """
-
+    return ez_list[-1]
 
 def foo_cx():
     """
     Return the type of the object that is the
         second-to-last member of `ez_list`
     """
+    return type(ez_list[-2])
 
 
 def foo_d():
@@ -58,6 +63,7 @@ def foo_d():
     Return the very last member of the sequence that itself
         is the second-to-last member of `ez_list`
     """
+    return ez_list[-2][-1]
 
 
 def foo_e():
@@ -65,6 +71,8 @@ def foo_e():
     Calculate and return the length of `ez_list`,  i.e., the
       number of members it contains.
     """
+    return len(ez_list)
+
 
 
 def foo_f():
@@ -75,8 +83,15 @@ def foo_f():
       i.e. the separate values are joined with the
         semi-colon character
     """
+    theString = ""
+    for i in ez_list[5]:
+        theString = theString + i + ';'
+    return theString
 
-
+    theString = ""
+    smallList = ez_list[5]
+    theString = smallList[0] + ";" + smallList[1] + ";" + smallList[2]
+    return theString
 def foo_g():
     """
     Return a list that contains the 2nd through 5th
@@ -84,6 +99,8 @@ def foo_g():
 
       (it should have 4 members total)
     """
+    smallList = ez_list[1:5]
+    return smallList
 
 
 def foo_h():
@@ -91,4 +108,10 @@ def foo_h():
     Return a list that consists of the last
       3 members of `ez_list` in *reverse* order
     """
+
+    x = len(ez_list)
+    lastList = ez_list[-4:x]
+    lastList.reverse()
+    return lastList
+
 
