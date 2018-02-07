@@ -49,7 +49,7 @@ def foo_bx():
     Return the type of the object that
       the `'terms'` attribute points
     """
-    return type(ez_dict.values())
+    return type(ez_dict['terms'])
 
 
 def foo_c():
@@ -115,7 +115,7 @@ def foo_h():
     """
     Print the start date of President Trump's initial term
     """
-    print ez_dict['terms'][0]['start_date']
+    return(ez_dict['terms'][0]['start_date'])
 
 
 

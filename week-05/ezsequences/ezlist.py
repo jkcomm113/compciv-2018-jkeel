@@ -83,15 +83,11 @@ def foo_f():
       i.e. the separate values are joined with the
         semi-colon character
     """
-    theString = ""
-    for i in ez_list[5]:
-        theString = theString + i + ';'
-    return theString
 
-    theString = ""
+    s = ";"
     smallList = ez_list[5]
-    theString = smallList[0] + ";" + smallList[1] + ";" + smallList[2]
-    return theString
+    return s.join(smallList)
+
 def foo_g():
     """
     Return a list that contains the 2nd through 5th
@@ -108,9 +104,7 @@ def foo_h():
     Return a list that consists of the last
       3 members of `ez_list` in *reverse* order
     """
-
-    x = len(ez_list)
-    lastList = ez_list[-4:x]
+    lastList = ez_list[-3:]
     lastList.reverse()
     return lastList
 
