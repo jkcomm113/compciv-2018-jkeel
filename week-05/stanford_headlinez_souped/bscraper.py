@@ -19,12 +19,11 @@ def fetch_hedz(url=OFFICIAL_URL):
     tags = parse_headline_tags(txt)
     headlines = []
 
-    soup = BeautifulSoup(txt, 'lxml')
-    moreTags = soup.find_all('a')
-
     for tag in tags:
         curr_dict = extract_headline_data(tag)
         headlines.append(curr_dict)
+    
+    return headlines
 
 
 

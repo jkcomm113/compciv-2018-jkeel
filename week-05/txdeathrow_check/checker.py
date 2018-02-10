@@ -34,10 +34,8 @@ def get_and_parse_inmate_rows():
     resp = requests.get(url)
     text = resp.text
     soup = BeautifulSoup(text,'lxml') 
-    records = soup.select('tr')
+    records = soup.select('tr')[1:]
     return records
-
-
 
 
 def count_inmates():
@@ -55,9 +53,8 @@ def count_inmates():
     resp = requests.get(url)
     text = resp.text
     soup = BeautifulSoup(text,'lxml') 
-    records = soup.select('tr')
-    numbers = len(records)[1:]
-    return numbers
+    records = soup.select('tr')[1:]
+    return len(records)
 
     ## fill this out for yourself
     ## (this function could literally be just one line)
