@@ -4,6 +4,20 @@ from bs4 import BeautifulSoup
 OFFICIAL_URL='https://www.stanford.edu/news/'
 SAMPLE_URL = 'https://wgetsnaps.github.io/stanford-edu-news/news/simple.html'
 
+def fetch_html(url):
+    """
+    This function performs a GET request on the given
+      URL and returns the content (typically, HTML)
+      as a string
+    Args:
+        url (str): e.g. 'http://www.example.com'
+    Returns:
+        str: the data at `url`, as text
+    """
+    a = requests.get(url)
+    resp = a.text
+    return resp
+    
 def fetch_hedz(url=OFFICIAL_URL):
     """
     Extracts headline objects (with 'url' and 'title' attributes)
@@ -55,21 +69,6 @@ def extract_headline_data(tag):
     return return_dict
 
 
-
-
-def fetch_html(url):
-    """
-    This function performs a GET request on the given
-      URL and returns the content (typically, HTML)
-      as a string
-    Args:
-        url (str): e.g. 'http://www.example.com'
-    Returns:
-        str: the data at `url`, as text
-    """
-    a = requests.get(url)
-    resp = a.text
-    return resp
 
 
 def parse_headline_tags(txt):

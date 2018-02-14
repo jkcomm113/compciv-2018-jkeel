@@ -122,17 +122,16 @@ def wrangle_inmate_data_from_tag(rowtag):
     href = link.attrs['href']
 
     d['url'] = make_absolute_url(href)
-
-
     d['last_name'] = cols[2].text.strip()
     d['first_name'] = cols[3].text.strip()
-    d['birth_date'] = txdate_to_iso(cols[4].text.strip())
+    d['birthdate'] = txdate_to_iso(cols[4].text.strip())
     d['gender'] = cols[5].text.strip()
     d['race'] = cols[6].text.strip()
     d['date_received'] = txdate_to_iso(cols[7].text.strip()) 
+    d['county'] = cols[8].text.strip()
     d['date_offense'] = txdate_to_iso(cols[9].text.strip())
-    d['age_at_offence'] = calc_years_diff(d['birth_date'] , d['date_offense'])  
-    d['years_before_death_row']: calc_years_diff(d['date_offense'], d['date_received'])
+    d['age_at_offense'] = round(calc_years_diff(d['birthdate'] , d['date_offense']))
+    d['years_before_death_row'] calc_years_diff(d['date_offense'], d['date_received'])
 
     return d
 
