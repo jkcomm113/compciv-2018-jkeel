@@ -21,12 +21,10 @@ def txdate_to_iso(datestr):
         <str>: in 'YYYY-MM-DD' format, e.g. '1988-10-24'
     """
 
-    if len(datestr) == 10:
-        d = datestr[3:5]
-        y = datestr[-4:]
-        m = datestr[0:2]
-    else:
-        m, d, y = datestr.split('/')
+    m, d, y = datestr.split('/')
+     
+
+    if len(y) != 4:
         y = '19' + y
 
     return '-'.join([y, m, d])
